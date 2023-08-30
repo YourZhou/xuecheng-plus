@@ -1,7 +1,12 @@
 #微服务配置
 spring:
   application:
-    name: content-api
+    name: system-api
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.101.65:3306/xc116_system?serverTimezone=UTC&userUnicode=true&useSSL=false&
+    username: root
+    password: mysql
   cloud:
     nacos:
       server-addr: 192.168.101.65:8848
@@ -13,10 +18,6 @@ spring:
         group: xuecheng-plus-project
         file-extension: yaml
         refresh-enabled: true
-        extension-configs:
-          - data-id: content-service-${spring.profiles.active}.yaml
-            group: xuecheng-plus-project
-            refresh: true
         shared-configs:
           - data-id: swagger-${spring.profiles.active}.yaml
             group: xuecheng-plus-common
@@ -27,5 +28,3 @@ spring:
 
   profiles:
     active: dev
-
-
